@@ -1,0 +1,36 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost/train_manage_sys</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password"></property>
+		<property name="hibernate.connection.pool_size">20</property>
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.hbm2ddl.auto">update</property>
+
+		<mapping class="com.jvwl.train.model.base.BaseBean" />
+
+		<mapping class="com.jvwl.train.model.Department" />
+		<mapping class="com.jvwl.train.model.Job" />
+		<mapping class="com.jvwl.train.model.DepartWantedPlan" />
+		<mapping class="com.jvwl.train.model.DepartWantedPlanHistory" />
+
+
+
+		<mapping class="com.jvwl.train.model.ToEmployInfo" />
+		<mapping class="com.jvwl.train.model.ToEmployTestInfo" />
+
+		<mapping class="com.jvwl.train.model.HrTrainingExec" />
+		<mapping class="com.jvwl.train.model.HrTrainingExecDetall" />
+		<mapping class="com.jvwl.train.model.HrTrainingExecUserFeedback" />
+		<mapping class="com.jvwl.train.model.HrTrainingPlan" />
+		<mapping class="com.jvwl.train.model.Staff" />
+		<!-- -->
+
+	</session-factory>
+</hibernate-configuration>

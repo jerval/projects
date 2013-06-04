@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<constant name="struts.custom.i18n.resources" value="messageResource"></constant>
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.objectFactory" value="spring" /> 
+	<constant name="struts.ui.theme" value="jvwl" />
+	<include file="struts_actions.xml" />
+
+	<package name="jvwl" extends="json-default">
+		<default-action-ref name="loginPage" />
+		<global-results>
+			<result name="login" type="redirect">/login.jsp</result>
+			<result name="exception">/error.jsp</result>
+		</global-results>
+		<action name="loginPage">
+			<result>/login.jsp</result>
+		</action>
+	</package>
+
+</struts>

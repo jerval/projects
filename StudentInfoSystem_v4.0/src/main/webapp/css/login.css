@@ -1,0 +1,98 @@
+
+.admin_login{
+height:250px;
+padding:50px 0 0 350px;
+}
+.left_box {
+	width:257px;
+	height:auto;
+	float:left;
+	padding-bottom:10px;
+}
+.top_left_box {
+	width:257px;
+	height:10px;
+	float:left;
+	background-image: url(../images/top_box_bg.gif);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.center_left_box_content {
+	font:large bold;
+	text-align:center;
+	margin-left:30px;
+	margin-top:20px;
+	margin-right:28px;
+	padding-top:5px;
+	height:40px;
+	background-image:url(../images/_button.gif);
+	background-repeat:no-repeat;
+}
+.center_left_box {
+	width:257px;
+	height: auto;
+	float:left;
+	background-image: url(../images/center_box_bg.gif);
+	background-repeat: repeat-y;
+}
+.bottom_left_box {
+	width:257px;
+	height:10px;
+	float:left;
+	background-image: url(../images/bottom_box_bg.gif);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.box_title {
+	width:257px;
+	text-align:center;
+	font-size:18px;
+	color:#615357;
+	padding:5px 0 5px 0;
+}
+.box_title span {
+	font-weight:bold;
+	color:#d8325d;
+}
+/*-----------------form style--------------------*/
+.form {
+	width:257px;
+	text-align:center;
+	color:#615357;
+	padding:5px 0 5px 0;
+}
+.form_row {
+	float:left;
+	width:257px;
+	text-align:center;
+	padding:3px 0 3px 0;
+}
+label.left {
+	float:left;
+	width:70px;
+	padding-top:3px;
+	text-align:right;
+}
+label.left_long {
+	float:left;
+	width:90px;
+	padding-top:3px;
+	text-align:right;
+}
+input.form_input {
+	border: 1px solid #C8D2D9;
+	background-color:#FFFFFF;
+	margin:0px;
+	width:130px;
+	float:left;
+	margin-left:10px;
+}
+.contact_information {
+	font-size:10px;
+	color:#385870;
+	text-align:left;
+	padding-left:20px;
+}
+.contact_information span {
+	color:#d8325d;
+}

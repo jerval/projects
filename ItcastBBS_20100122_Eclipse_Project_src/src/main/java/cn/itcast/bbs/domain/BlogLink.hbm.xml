@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="cn.itcast.bbs.domain">
+	<class name="BlogLink" table="itcast_blogLink">
+		<cache usage="read-write" />
+
+		<id name="id" column="id_">
+			<generator class="uuid" />
+		</id>
+		<property name="title" column="title_" length="128" />
+		<property name="description" column="description_" length="255" />
+		<property name="author" column="author_" length="64" />
+		<property name="url" column="url_" length="255" />
+	</class>
+</hibernate-mapping>

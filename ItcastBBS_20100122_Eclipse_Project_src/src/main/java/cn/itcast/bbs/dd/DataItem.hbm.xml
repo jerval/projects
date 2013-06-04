@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="cn.itcast.bbs.dd">
+	<class name="DataItem" table="itcast_dataDictItem">
+		<id name="id" column="id_" length="45">
+			<generator class="uuid" />
+		</id>
+
+		<property name="name" column="name_" length="128" />
+		<property name="stringValue" column="stringValue_" length="256" />
+		<property name="valueType" column="valueType_" length="128" />
+		<property name="hibernatePO" type="boolean" column="isHibernatePO_"/>
+	</class>
+</hibernate-mapping>

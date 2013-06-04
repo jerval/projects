@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<package name="course" extends="struts-default" namespace="/system/manager/course">
+		<action name="courseAddAction">
+			<result>addCoursePlan.jsp</result>
+		</action>
+		<action name="courseAddSaveAction" class="com.jvwl.train.action.course.CourseAddSaveAction">
+			<result type="redirectAction">courseListAction</result>
+			<result name="fail">fail.jsp</result>
+		</action>
+		<action name="courseDeleteAction" class="com.jvwl.train.action.course.CourseDeleteAction">
+			<result type="redirectAction">courseListAction</result>
+		</action>
+		<action name="courseListAction" class="com.jvwl.train.action.course.CourseListAction">
+			<result>listCoursePlan.jsp</result>
+		</action>
+		<action name="courseUpdateAction" class="com.jvwl.train.action.course.CourseUpdateAction">
+			<result>updateCoursePlan.jsp</result>
+		</action>
+		<action name="courseUpdateSaveAction"
+			class="com.jvwl.train.action.course.CourseUpdateSaveAction">
+			<result>success.jsp</result>
+		</action>
+	</package>
+
+</struts>

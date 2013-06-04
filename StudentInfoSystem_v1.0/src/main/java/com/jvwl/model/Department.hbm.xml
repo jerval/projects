@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.jvwl.model.Department" table="t_department">
+		<id name="departmentId">
+			<generator class="assigned" />
+		</id>
+		<version name="version"></version>
+		<property name="name" length="10" not-null="true" />
+		<set name="grades" cascade="delete">
+			<key column="department_id" />
+			<one-to-many class="com.jvwl.model.Grade"/>
+		</set>
+	</class>
+</hibernate-mapping>

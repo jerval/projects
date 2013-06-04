@@ -1,0 +1,57 @@
+.onShow
+{
+    background:url(../images/checkForm/onShow.gif) no-repeat; 
+	background-position:left,top;
+	padding-top:2px;
+	padding-bottom:2px;
+    padding-left:25px; 
+	font-size: 12px;
+	line-height:22px; 
+	vertical-align:middle;
+	height:22px;
+}
+.onFocus
+{
+    background:#E9F0FF url(../images/checkForm/onFocus.gif) no-repeat; 
+	background-position:left,top;
+	padding-top:2px;
+	padding-bottom:2px;
+   	padding-left:25px; 
+	font-size: 12px;
+	line-height:22px; 
+	vertical-align:middle;
+	height:22px;
+}
+.onError
+{
+    background:#FFF2E9 url(../images/checkForm/onError.gif) no-repeat;
+	background-position:left,top;
+    padding-left:25px;
+	padding-top:2px;
+	padding-bottom:2px;
+	font-size: 12px;
+	line-height:22px; 
+	vertical-align:middle;
+	height:22px;
+}
+.onCorrect
+{
+    background:#E9FFEB url(../images/checkForm/onCorrect.gif) no-repeat;
+	background-position:left,top;
+    padding-left:25px;
+	padding-top:2px;
+	padding-bottom:2px;
+	font-size: 12px;
+	line-height:22px; 
+	vertical-align:middle;
+	height:22px;
+}
+.onLoad
+{
+    background:#E9FFEB url(../images/checkForm/onLoad.gif) no-repeat 3px 3px;
+	padding-bottom:2px;
+	font-size: 12px;
+	line-height:22px; 
+	vertical-align:middle;
+	height:22px;
+} 

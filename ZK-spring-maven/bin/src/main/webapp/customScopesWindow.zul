@@ -1,0 +1,7 @@
+<?page title="Custom Scopes Example" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<window title="Custom Scopes Example - Window Page" border="normal"
+	height="100px" width="400px" closable="true">
+	<label value="Message Text:"></label>
+	<textbox id="name" value="${msgBean.msg}" />
+</window>

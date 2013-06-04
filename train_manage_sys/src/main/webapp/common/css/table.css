@@ -1,0 +1,121 @@
+BODY {
+	FONT-SIZE: 9pt; FONT-FAMILY: arial,����;
+}
+TD {
+	FONT-SIZE: 9pt; FONT-FAMILY:����;
+}
+.TD01 {
+	FONT-SIZE: 9pt;
+	FONT-FAMILY: ����;
+	height: 23px;
+    text-align: left;
+	border-width:1px;
+	background-color:#FFFFFF;
+}
+.TD02 {
+	FONT-SIZE: 9pt;
+	FONT-FAMILY: ����;
+	height: 23px;
+	text-align: left;
+	background-color:#DEEEFF;
+	border-width:1px;
+}
+.TD03 {
+	FONT-SIZE: 9pt;
+	FONT-FAMILY: ����;
+	height: 23px;
+	text-align: center;
+	background-color:#DEEEFF;
+	border-width:1px;
+}
+.TD04 {
+	FONT-SIZE: 9pt;
+	FONT-FAMILY: ����;
+	height: 23px;
+    text-align: center;
+	border-width:1px;
+	background-color:#FFFFFF;
+}
+.TD05 {
+	FONT-SIZE: 9pt;
+	FONT-FAMILY: ����;
+	height: 23px;
+    text-align: right;
+	border-width:1px;
+	background-color:#FFFFFF;
+}
+.TD06 {
+	FONT-SIZE: 9pt;
+	FONT-FAMILY: ����;
+	height: 23px;
+    text-align: left;
+	border-width:1px;
+	background-color:#CCCCCC;
+}
+.TH00{
+	FONT-SIZE: 9pt;
+	FONT-FAMILY: ����;
+	height: 19px;
+	text-align: left;
+	background-repeat:repeat; 
+	background-position:center;
+	background-image:url(../images/bg(3).gif);
+}
+
+.TH01{
+	FONT-SIZE: 9pt;
+	FONT-FAMILY: ����;
+	height: 19px;
+	text-align: center;
+	background-repeat:repeat; 
+	background-position:center;
+	background-image:url(../images/bg(3).gif);
+}
+.TH02{
+	FONT-SIZE: 9pt;
+	FONT-FAMILY: ����;
+	height: 19px;
+	text-align: right;
+	background-repeat:repeat; 
+	background-position:center;
+	background-image:url(../images/bg(3).gif);
+}
+.table0{
+	border:2;
+	border-color:#E8E8E8;
+}
+.table1{
+    border:0;
+	background-color:#818181;
+}
+A.clsBackTop {
+	MARGIN-TOP: 10px; FONT-SIZE: 90%; MARGIN-BOTTOM: 0px; PADDING-BOTTOM: 0px; COLOR: black
+}
+A.clsBackTop:visited {
+	MARGIN-TOP: 10px; FONT-SIZE: 90%; MARGIN-BOTTOM: 0px; PADDING-BOTTOM: 0px; COLOR: black
+}
+A.clsBackTop:hover {
+	COLOR: blue
+}
+.txt {
+	margin: 2px 0px 2px 2px;
+}
+.txtarea{
+	margin: 10px 0px 10px 10px;
+}
+.textarea_edit
+{
+	font-family:Tahoma, Verdana, Arial;
+	font-size:11px;
+	overflow:auto;
+	background-color:#FFFFFF;
+	border:1 solid #7F9DB9;
+}
+td.menubar1 {font-family:����,Verdana,Arial;font-size:9pt;color:#000000;text-align:left;line-height:14px;}
+
+.imgButton {
+	cursor : hand;
+}
+.txt_number  {   
+  text-align:   right;   
+}   

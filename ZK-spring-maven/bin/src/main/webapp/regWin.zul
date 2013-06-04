@@ -1,0 +1,53 @@
+<?page title="Registration Page" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+<zscript>
+////Way 1
+//   直接用EL表面式   ${userService.getName()} or ${userService.name}
+
+//////Way 2  虽然报错，但是能工作的
+String msg = userService.name;
+
+///Way 3
+
+import org.zkoss.zkplus.spring.SpringUtil;
+import com.zk.spring.service.UserService;;
+        UserService userService = SpringUtil.getBean("userService");
+        String msg2 = userService.getName();
+</zscript>
+<window border="normal" width="400px" style="padding-top:20px;padding-left:20px;" title="${userService.name}"
+apply="com.zk.spring.action.RegistrationComposer">
+    <grid hflex="1">
+        <auxhead>
+            <auxheader colspan="2" label="${msg}==${msg2}" style="font-size:16px"/>
+        </auxhead>
+        <columns/>
+        <rows>
+            <row>
+                User Name <textbox id="nameBox" hflex="1" constraint="no empty" value="${userService.getName()}"/>
+            </row>
+            <row>
+                Gender:
+                <radiogroup id="genderRadio">
+                    <radio label="Male" value="male" checked="true"/>
+                    <radio label="Female" value="female"/>
+                </radiogroup>
+            </row>
+            <row >
+                Birthday <datebox id="birthdayBox" hflex="1" constraint="no empty, no today, no future"/>
+            </row>
+            <row spans="2" align="center" >
+                <hlayout>
+                    <checkbox id="acceptTermBox"/> Accept Term of Use
+                </hlayout>
+            </row>
+            <row spans="2" align="right">
+                <hlayout>
+                    <button id="resetButton" label="Reset" />
+                    <button id="submitButton" label="Submit" disabled="true"/>
+                </hlayout>
+            </row>
+        </rows>
+    </grid>
+</window>
+</zk>

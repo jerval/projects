@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+    "http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+	<package name="struts2" extends="jasperreports-default">
+		<action name="viewJasperReport" class="com.jvwl.action.ViewJasperReportAction">
+			<result name="success" type="jasper">
+				<param name="location">test.jasper</param>
+				<param name="dataSource">students</param>
+				<param name="format">HTML</param>
+			</result>
+		</action>
+	</package>
+</struts>

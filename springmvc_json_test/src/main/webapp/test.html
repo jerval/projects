@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head>
+		<title>test.html</title>
+
+		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+		<meta http-equiv="description" content="this is my page">
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<script type="text/javascript" src="js/jquery-1.4.2.js"></script>
+		<script type="text/javascript" src="js/serializeObject.js"></script>
+	</head>
+
+	<body>
+		This is my HTML page.
+		<br>
+		<form id="form1" action="" method="post">
+			<input type="text" name="username" value="kkk"/>
+			<input type="password" name="password" value="ppp"/>
+			<input type="submit" value="submit" />
+		</form>
+		<script type="text/javascript">
+		alert($("#form1").serialize());
+		alert($("#form1").serializeArray());
+		alert($("#form1").serializeObject());
+		 alert( JSON.stringify($("#form1").serializeObject()));
+		 alert( JSON.stringify($("#form1").serializeArray()));
+		 </script>
+	</body>
+</html>

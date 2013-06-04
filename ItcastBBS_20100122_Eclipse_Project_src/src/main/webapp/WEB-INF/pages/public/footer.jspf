@@ -1,0 +1,23 @@
+<%@ page pageEncoding="utf-8" language="java" %><%@
+taglib prefix="html" uri="http://struts.apache.org/tags-html"%>
+<div id="Oaks">
+<%-- 
+    <div>
+    	<span style="width:30px"></span> <a target="_blank" href="http://www.mop.com/">MOP</a> <span>|</span> <a
+            target="_blank" href="http://www.kaixin.com/">开心网</a> <span>|</span> <a target="_blank"
+                                                                                    href="http://www.donews.com/">DoNews</a>
+        <span>|</span> <a target="_blank" href="http://www.renren.com/">人人网</a> <span>|</span> <a target="_blank"
+                                                                                                  href="http://t.mop.com/">天书奇谈</a>
+        <span>|</span> <a target="_blank" href="http://ss.mop.com/">蜀山OL</a> <span>|</span> <a target="_blank"
+                                                                                               href="http://www.banma.com/">BanMa</a><span>|</span>
+        <a target="_blank" href="http://www.kaixin.com/kaixinnongchang.htm">开心农场</a>
+    </div>
+--%>
+    <p style="text-align: center; color:#8D8D8D; margin-top: 10px;">传智播客自主开发 | Struts + Spring + Hibernate + Lucene 实现的开源论坛.</p>
+</div>
+<div id="webFooter">
+    <%--<p>传智播客自主开发 | Struts + Spring + Hibernate + Lucene 实现的开源论坛.</p>--%>
+    <p><a href="http://www.itcast.cn" target="_blank">传智播客首页</a> | 
+       <html:link action="/portal?method=index" target="_blank">论坛首页</html:link>
+    </p>
+</div>

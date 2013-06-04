@@ -1,0 +1,6 @@
+<?page title="Auto Generated index.zul"?>
+<window title="tets" border="normal" width="200px">
+
+<label value="You are using: ${desktop.webApp.version}"/>
+
+</window>

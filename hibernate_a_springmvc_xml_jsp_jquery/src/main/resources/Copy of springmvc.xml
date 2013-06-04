@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="start.do">startController</prop>
+				<prop key="login.do">loginController</prop>
+				<prop key="command.do">startCommandController</prop>
+				<prop key="form.do">startFormController</prop>
+				<prop key="toLogin.do">startMultiController</prop>
+				<prop key="login1.do">startMultiController</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="startController" class="com.jvwl.controller.StartController" />
+	<bean id="startCommandController" class="com.jvwl.controller.StartCommandController">
+		<property name="commandClass" value="com.jvwl.model.User"></property>
+	</bean>
+	<bean id="startFormController" class="com.jvwl.controller.StartFormController">
+		<property name="commandClass" value="com.jvwl.model.User" />
+		<property name="formView" value="login" />
+		<property name="successView" value="success" />
+	</bean>
+	<bean id="startMultiController" class="com.jvwl.controller.StartMultiController">
+
+		<property name="methodNameResolver">
+			
+			
+			<!-- 通过参数func来决定使用哪个方法来处理  -->
+			<bean
+				class="org.springframework.web.servlet.mvc.multiaction.ParameterMethodNameResolver">
+				<property name="paramName" value="func" />
+			</bean>
+
+			<!--通过路径名，如toLogin.do，取得toLogin即为方法名
+				<bean
+				class="org.springframework.web.servlet.mvc.multiaction.InternalPathMethodNameResolver"
+				/>
+			-->
+		</property>
+	</bean>
+
+	<!--
+		方法1 <bean id="loginController"
+		class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+		<property name="viewName" value="login"></property> </bean>
+	-->
+	<!--方法2 可以将login.do的请求直接转换成login，比方法1更好用 -->
+	<bean id="loginController"
+		class="org.springframework.web.servlet.mvc.UrlFilenameViewController"></bean>
+
+	<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="prefix" value="/WEB-INF/content/"></property>
+		<property name="suffix" value=".jsp"></property>
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView"></property>
+	</bean>
+
+</beans>

@@ -1,0 +1,8 @@
+DELIMITER $$
+CREATE
+    PROCEDURE `test`.`addUser`(IN username VARCHAR(30),IN PASSWORD VARCHAR(32),IN age INT,IN regDate TIMESTAMP,OUT id INT)
+    BEGIN
+	INSERT INTO tbuser(username,PASSWORD,age,regDate) VALUES(username,PASSWORD,age,regDate);
+	SELECT LAST_INSERT_ID() INTO id;
+    END$$
+DELIMITER ;

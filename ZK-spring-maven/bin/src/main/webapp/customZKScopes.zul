@@ -1,0 +1,16 @@
+<?page title="Custom ZK Scopes" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<window title="Custom Scopes Example - Main Page" border="normal"
+	height="100px" width="400px" apply="${scopesCtrl}">
+	<label value="Enter Message Text:"></label>
+	<textbox id="name" value="${scopesCtrl.uuu}" />
+	<button id="setMsgBtn" label="Set" />
+	<button id="showMsgBtn" label="Show Message" />
+	<button id="showPageBtn" label="Show Window">
+		<attribute name="onClick">
+	Window win = (Window) Executions.getCurrent().createComponents(
+			"customScopesWindow.zul", null, null);
+	win.doHighlighted();
+</attribute>
+	</button>
+</window>

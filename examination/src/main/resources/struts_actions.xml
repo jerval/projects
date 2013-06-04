@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<package name="adminIndex" extends="jvwl" namespace="/system/manager">
+		<default-interceptor-ref name="checkStack"></default-interceptor-ref>
+		<action name="adminIndex">
+			<result>/system/manager/index.html</result>
+		</action>	
+	</package>
+	<!-- 登录模块开始 -->
+	<package name="login" extends="jvwl" namespace="/system">
+		<action name="loginAction" class="com.jvwl.examination.action.login.LoginAction">
+			<result type="json">
+				<param name="noCache">true</param>
+			</result>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+	</package>
+	<!-- 登录模块结束 -->
+	<!-- 部门模块开始 -->
+	<package name="department" extends="jvwl" namespace="/system/manager/department">
+		<action name="departmentListAction"
+			class="com.jvwl.examination.action.department.DepartmentListAction">
+			<result type="json">
+				<param name="noCache">true</param>
+			</result>
+		</action>
+		<action name="departmentEditAction"
+			class="com.jvwl.examination.action.department.DepartmentEditAction">
+			<result type="json">
+				<param name="noCache">true</param>
+			</result>
+		</action>
+		<action name="departmentSaveAction"
+			class="com.jvwl.examination.action.department.DepartmentSaveAction">
+			<result type="json">
+				<param name="noCache">true</param>
+			</result>
+		</action>
+	</package>
+	<!-- 部门模块开始 -->
+	<!-- 员工模块结束 -->
+	<package name="employee" extends="jvwl" namespace="/system/manager/employee">
+		<action name="employeeListAction"
+			class="com.jvwl.examination.action.employee.EmployeeListAction">
+			<result type="json">
+				<param name="noCache">true</param>
+			</result>
+		</action>
+		<action name="employeeEditAction"
+			class="com.jvwl.examination.action.employee.EmployeeEditAction">
+			<result type="json">
+				<param name="noCache">true</param>
+			</result>
+		</action>
+		<action name="employeeSaveAction"
+			class="com.jvwl.examination.action.employee.EmployeeSaveAction">
+			<result type="json">
+				<param name="noCache">true</param>
+			</result>
+		</action>
+	</package>
+	<!-- 员工模块结束 -->
+	<!-- 试卷模块结束 -->
+	<package name="exampaper" extends="jvwl" namespace="/system/manager/exampaper">
+		<action name="examinationPaperListAction"
+			class="com.jvwl.examination.action.exampaper.ExaminationPaperListAction">
+			<result type="json">
+				<param name="noCache">true</param>
+			</result>
+		</action>
+		<action name="examinationPaperEditAction"
+			class="com.jvwl.examination.action.exampaper.ExaminationPaperEditAction">
+			<result type="json">
+				<param name="noCache">true</param>
+			</result>
+		</action>
+		<action name="examinationPaperSaveAction"
+			class="com.jvwl.examination.action.exampaper.ExaminationPaperSaveAction">
+			<result type="json">
+				<param name="noCache">true</param>
+			</result>
+		</action>
+	</package>
+	<!-- 试卷模块结束 -->
+	<!-- 试题模块结束 -->
+	<package name="examquestion" extends="jvwl"
+		namespace="/system/manager/examquestion">
+		<action name="examinationQuestionListAction"
+			class="com.jvwl.examination.action.examquestion.ExaminationQuestionListAction">
+			<result type="json">
+				<param name="noCache">true</param>
+			</result>
+		</action>
+		<action name="examinationQuestionEditAction"
+			class="com.jvwl.examination.action.examquestion.ExaminationQuestionEditAction">
+			<result type="json">
+				<param name="noCache">true</param>
+			</result>
+		</action>
+		<action name="examinationQuestionSaveAction"
+			class="com.jvwl.examination.action.examquestion.ExaminationQuestionSaveAction">
+			<result type="json">
+				<param name="noCache">true</param>
+			</result>
+		</action>
+	</package>
+	<!-- 试题模块结束 -->
+	<!-- 试题答案模块结束 -->
+	<package name="examkey" extends="jvwl" namespace="/system/manager/examkey">
+		<action name="examinationKeyListAction"
+			class="com.jvwl.examination.action.examkey.ExaminationKeyListAction">
+			<result type="json">
+				<param name="noCache">true</param>
+			</result>
+		</action>
+		<action name="examinationKeyEditAction"
+			class="com.jvwl.examination.action.examkey.ExaminationKeyEditAction">
+			<result type="json">
+				<param name="noCache">true</param>
+			</result>
+		</action>
+		<!--  -->
+		<action name="examinationKeySaveAction"
+			class="com.jvwl.examination.action.examkey.ExaminationKeySaveAction">
+			<result type="json">
+				<param name="noCache">true</param>
+			</result>
+		</action>
+	</package>
+	<!-- 试题答案模块结束 -->
+	<!-- 成绩管理模块结束 -->
+	<package name="examscore" extends="jvwl" namespace="/system/manager/examscore">
+		<action name="examinationScoreListAction"
+			class="com.jvwl.examination.action.examkey.ExaminationScoreListAction">
+			<result type="json">
+				<param name="noCache">true</param>
+			</result>
+		</action>
+		<action name="examinationScoreEditAction"
+			class="com.jvwl.examination.action.examkey.ExaminationScoreEditAction">
+			<result type="json">
+				<param name="noCache">true</param>
+			</result>
+		</action>
+	</package>
+	<!-- 成绩管理模块结束 -->
+	<!-- 用户管理模块结束 -->
+	<package name="user" extends="jvwl" namespace="/system/manager/user">
+		<action name="userListAction" class="com.jvwl.examination.action.user.UserListAction">
+			<result type="json">
+				<param name="noCache">true</param>
+			</result>
+		</action>
+		<action name="userEditAction" class="com.jvwl.examination.action.user.UserEditAction">
+			<result type="json">
+				<param name="noCache">true</param>
+			</result>
+		</action>
+		<action name="userSaveAction" class="com.jvwl.examination.action.user.UserSaveAction">
+			<result type="json">
+				<param name="noCache">true</param>
+			</result>
+		</action>
+	</package>
+	<!-- 用户管理模块结束 -->
+	<!-- 系统管理模块结束 -->
+	<package name="sys" extends="jvwl" namespace="/system/manager/sys">
+		<action name="sysModifyPasswordAction"
+			class="com.jvwl.examination.action.sys.SysModifyPasswordAction">
+			<result type="json">
+				<param name="noCache">true</param>
+			</result>
+		</action>
+	</package>
+	<!-- 系统管理模块结束 -->
+
+</struts>

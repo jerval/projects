@@ -1,0 +1,37 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<!-- 
+	//指定类名 , 当组件实例化时，相应的类也实例化 。
+	<div apply="foo.Composer1, foo2.Composer2">
+	//指定一实例
+	<grid apply="${fooComposer}">
+-->
+<window id="mywin" apply="com.zk.spring.action.MyComposer">
+	<grid>
+		<rows>
+			<row>
+				<textbox id="input" />
+				<!--
+				 $composer, id$composer and id$ClassName 
+				
+				The name (id$ClassName) is useful, If there are multiple composers applied.
+<window apply="foo.Handle1, foo.Handle2">
+    <textbox value="${$Handle1.title}"/>
+    <textbox value="${$Handle2.name}"/>
+ </window>
+ 
+ 
+ Specify Name for Composer
+ <window apply="MyComposer">
+    <custom-attributes composerName="mc"/> name the composer as mc 
+    <textbox value="${mc.title}"/>
+ </window>
+				-->
+				<textbox value="${mywin$composer.title}" />
+				<textbox value="${$composer.title}" /><!--also refer to MyComposer-->
+
+				<button label="Submit" id="submit" />
+				<button label="Reset" id="reset" />
+			</row>
+		</rows>
+	</grid>
+</window>

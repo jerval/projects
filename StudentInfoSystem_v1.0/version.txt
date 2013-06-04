@@ -1,0 +1,7 @@
+1.对象模型主键采用自身唯一主键映射,如User中用username作为id
+2.用Hibernate映射文件进行映射
+3.Spring也全用的配置文件作配置
+4.Struts也全用的配置文件
+5.页面用的Jquery框架
+
+注：web部分仅实现了department模块，只是做了简单的实现

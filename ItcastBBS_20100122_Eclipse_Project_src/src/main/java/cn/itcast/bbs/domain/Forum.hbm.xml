@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="cn.itcast.bbs.domain">
+	<class name="Forum" table="itcast_forum">
+		<cache usage="read-write"/>
+		
+		<id name="id" column="id_">
+			<generator class="uuid" />
+		</id>
+		<property name="name" column="name_" length="255" />
+		<property name="description" column="description_" length="255" />
+		<property name="order" column="order_" />
+		<many-to-one name="category" column="categoryId_" lazy="false" />
+
+		<property name="topicCount" column="topicCount_" />
+		<property name="articleCount" column="articleCount_" />
+		<!-- 这是一对一的关系，但把unique设为了false。
+				因为在sqlserver中运行时，有异常 -->
+		<many-to-one name="lastTopic" column="lastTopicId_" unique="false" lazy="false"/>
+		<property name="lastArticlePostTime" column="lastArticlePostTime_" />
+	</class>
+</hibernate-mapping>

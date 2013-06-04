@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+  MyBat is 的 XML配置文件包含了影响 MyBat is 行为甚深的设置和属性信息。 XML文档
+的高层级结构如下： 
+  configuration 配置 
+  properties 属性 
+  settings 设置 
+  typeAliases 类型命名 
+  typeHandlers 类型处理器 
+  objectFactory 对象工厂 
+  plugins 插件 
+  environments 环境 
+  environment 环境变量 
+  transactionManager 事务管理器 
+  dataSource 数据源 
+  映射器 
+<configuration>
+	<properties resource="org/mybatis/example/config.properties">
+		<property name="username" value="dev_user" />
+		<property name="password" value="F2Fa3!33TYyg" />
+	</properties>
+	<settings>
+		<setting name="cacheEnabled" value="true" />
+		<setting name="lazyLoadingEnabled" value="true" />
+		<setting name="multipleResultSetsEnabled" value="true" />
+		<setting name="useColumnLabel" value="true" />
+		<setting name="useGeneratedKeys" value="false" />
+		<setting name="enhancementEnabled" value="false" />
+		<setting name="defaultExecutorType" value="SIMPLE" />
+		<setting name="defaultStatementTimeout" value="25000" />
+	</settings>
+	<typeAliases>
+		<typeAlias alias="Author" type="domain.blog.Author" />
+		<typeAlias alias="Blog" type="domain.blog.Blog" />
+		<typeAlias alias="Comment" type="domain.blog.Comment" />
+		<typeAlias alias="Post" type="domain.blog.Post" />
+		<typeAlias alias="Section" type="domain.blog.Section" />
+		<typeAlias alias="Tag" type="domain.blog.Tag" />
+	</typeAliases>
+	<typeHandlers>
+		<typeHandler javaType="String" jdbcType="VARCHAR"
+			handler="ExampleTypeHandler" />
+	</typeHandlers>
+	<objectFactory type="ExampleObjectFactory">
+		<property name="someProperty" value="100" />
+	</objectFactory>
+	<plugins>
+		<plugin interceptor="ExamplePlugin">
+			<property name="someProperty" value="100" />
+		</plugin>
+	</plugins>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<!-- <transactionManager type="MANAGED"> <property name="closeConnection" 
+				value="false"/> </transactionManager> -->
+			<dataSource type="POOLED">
+				<!-- 这个例子中的 username和 password 将会由 properties 元素中设置的值来替换。 driver 和 url属性将会从包含进来的 
+					config.properties 文件中的值来替换。这里提供很多配置的选项。 -->
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+	</environments>
+	// Using classpath relative resources
+	<mappers>
+		<mapper resource="org/mybatis/builder/AuthorMapper.xml" />
+		<mapper resource="org/mybatis/builder/BlogMapper.xml" />
+		<mapper resource="org/mybatis/builder/PostMapper.xml" />
+	</mappers>
+	// Using url fully qualified paths
+	<mappers>
+		<mapper url="file:///var/sqlmaps/AuthorMapper.xml" />
+		<mapper url="file:///var/sqlmaps/BlogMapper.xml" />
+		<mapper url="file:///var/sqlmaps/PostMapper.xml" />
+	</mappers>
+</configuration> 

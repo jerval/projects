@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.5"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee   http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+	<!-- Spring 有关配置 -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath*:applicationContext.xml</param-value>
+	</context-param>
+
+	<!-- ***************** Servlet ***************** -->
+
+	<!-- 只用于启动时初始化系统，不映射 -->
+	<servlet>
+		<servlet-name>InitSystemServlet</servlet-name>
+		<servlet-class>cn.itcast.bbs.web.InitSystemServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<!-- FCKeditor -->
+	<servlet>
+		<servlet-name>Connector</servlet-name>
+		<servlet-class>cn.itcast.bbs.fckeditor.ConnectorServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Connector</servlet-name>
+		<url-pattern>/widgets/fckeditor/editor/filemanager/connectors/*</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Struts的ActionServlet -->
+	<servlet>
+		<servlet-name>action</servlet-name>
+		<servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
+		<init-param>
+			<param-name>config</param-name>
+			<param-value>/WEB-INF/struts-config.xml</param-value>
+		</init-param>
+		<init-param>
+			<param-name>debug</param-name>
+			<param-value>3</param-value>
+		</init-param>
+		<init-param>
+			<param-name>detail</param-name>
+			<param-value>3</param-value>
+		</init-param>
+		<load-on-startup>0</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>action</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+
+
+	<!-- ***************** Filter ***************** -->
+
+	<!-- 使用Spring的过滤器解决表单乱码的过滤器 -->
+	<filter>
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>utf-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping>
+
+	<!-- 检测并处理自动登录Filter -->
+	<filter>
+		<filter-name>MemberAutoLoginFilter</filter-name>
+		<filter-class>cn.itcast.bbs.web.filter.MemberAutoLoginFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>MemberAutoLoginFilter</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>MemberAutoLoginFilter</filter-name>
+		<url-pattern>*.jsp</url-pattern>
+	</filter-mapping>
+
+	<!-- 更新用户最后访问信息的Filter -->
+	<filter>
+		<filter-name>RecordAccessInformationFilter</filter-name>
+		<filter-class>cn.itcast.bbs.web.filter.RecordAccessInformationFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>RecordAccessInformationFilter</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping>
+
+	<!--  -->
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>
+

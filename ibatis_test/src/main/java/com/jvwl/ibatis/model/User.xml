@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap>
+	<typeAlias alias="User" type="com.jvwl.ibatis.model.User" />
+
+	<select id="findUsers" resultClass="User">
+		select * from t_user
+  </select>
+
+	<select id="findUser" parameterClass="int" resultClass="User">
+		select *
+		from t_user where id = #id#
+  </select>
+
+	<insert id="insertUser" parameterClass="User">
+		insert into t_user values
+		(#id#, #username#, #password#)
+		<selectKey keyProperty="id" resultClass="int">
+			SELECT LAST_INSERT_ID() 	
+		</selectKey>
+	</insert>
+
+	<update id="updateUser" parameterClass="User">
+		update t_user set
+		username = #username#,
+		password = #password#
+		where
+		id = #id#
+  </update>
+	<delete id="deleteUser" parameterClass="int">
+		delete from t_user where
+		id = #id#
+  </delete>
+
+</sqlMap>

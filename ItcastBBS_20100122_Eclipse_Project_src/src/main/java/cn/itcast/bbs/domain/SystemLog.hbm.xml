@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="cn.itcast.bbs.domain">
+	<class name="SystemLog" abstract="true" table="itcast_systemLog">
+		<id name="id" column="id_">
+			<generator class="uuid" />
+		</id>
+
+		<property name="logTime" column="logTime_" type="timestamp" />
+		<property name="comment" column="comment_" type="text" length="65535" />
+		<many-to-one name="operator" column="operator_" lazy="false"/>
+		<property name="operIpAddr" column="operIpAddr_" length="16" />
+
+		<union-subclass name="OperationLog" table="itcast_operationLog">
+			<property name="entityType" column="entityType_" length="128"/>
+			<property name="entityId" column="entityId_"  length="45"/>
+			<property name="type" column="typeName_"  length="32"/>
+		</union-subclass>
+
+		<union-subclass name="ExceptionLog" table="itcast_exceptionLog">
+			<property name="className" column="className_" />
+			<property name="summary" column="summary_" length="1024" />
+			<property name="detailMessage" column="detailMessage_" type="text" length="65535" />
+		</union-subclass>
+
+	</class>
+</hibernate-mapping>

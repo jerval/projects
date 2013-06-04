@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mybatis.app.mapper.StudentMapper">
+
+	<cache />
+	<select id="findNamesByPage" parameterType="Page" resultType="String">
+		select name
+		from student limit #{startNo},#{pageSize}
+	</select>
+	<select id="findCommonByPage" parameterType="Page" resultType="hashmap">
+		select s.name,s.id,u.username
+		from student s,tbuser u limit #{startNo},#{pageSize}
+	</select>
+
+</mapper>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<package name="login" extends="struts-default" namespace="/system">
+
+		<action name="loginAction" class="com.jvwl.train.action.login.LoginAction">
+			<result type="redirect">manager/index.html</result>
+			<result name="fail" type="redirect">login.html</result>
+		</action>
+
+	</package>
+
+</struts>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<package name="feedback" extends="struts-default" namespace="/system/manager/feedback">
+		<action name="feedbackAddSaveAction" class="com.jvwl.train.action.feedback.DetailFeedbackAction">
+			<result>success.jsp</result>
+			<result name="fail">fail.jsp</result>
+		</action>
+		<action name="feedbackListAction" class="com.jvwl.train.action.feedback.ListFeedbackAction">
+			<result>success.jsp</result>
+		</action>
+		<action name="toteatherFeedbackAction" class="com.jvwl.train.action.feedback.ToteatherFeedbackAction">
+			<result>success.jsp</result>
+		</action>
+		<action name="viewFeedbackAction" class="com.jvwl.train.action.feedback.ViewFeedbackAction">
+			<result>success.jsp</result>
+		</action>
+	</package>
+
+</struts>

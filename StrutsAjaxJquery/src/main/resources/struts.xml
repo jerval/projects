@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<package name="example" extends="json-default" namespace="/">
+		<action name="textResult" class="action.TextResult">
+			<result name="text" type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+			<result name="html1" type="plainText">
+				<param name="location">/my.html</param>
+				<param name="charSet">UTF-8</param>
+			</result>
+
+			<result name="jsp1" type="plainText">
+				<param name="location">/my.jsp</param>
+				<param name="charSet">UTF-8</param>
+			</result>
+			<result type="redirect" name="jsp2">/my1.jsp</result>
+			<!--
+				<result name="jsp2"> <param name="location">/my1.jsp</param> <param
+				name="charSet">UTF-8</param> </result>
+			-->
+			<result name="json" type="json">
+				<param name="noCache">true</param>
+			</result>
+		</action>
+
+	</package>
+
+</struts>

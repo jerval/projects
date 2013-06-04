@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="cn.itcast.bbs.domain">
+	<class name="User" table="itcast_user">
+		<cache usage="read-write"/>
+
+		<id name="id" column="id_" length="45">
+			<generator class="uuid" />
+		</id>
+		<property name="loginName" column="loginName_" length="128" />
+		<property name="password" column="password_" length="128" />
+		<property name="email" column="email_" length="128" />
+
+		<property name="nickname" column="nickname_" length="128" />
+		<property name="gender" column="gender_" type="genderType" length="16" />
+		<property name="avatar" column="avatar_" length="204800" />
+		<property name="signature" column="signature_" length="255" />
+
+		<property name="registrationTime" column="registrationTime_" type="timestamp" />
+		<property name="lastVisitTime" column="lastVisitTime_" type="timestamp" />
+		<property name="lastVisitIpAddr" column="lastVisitIpAddr_" length="15" />
+
+		<property name="topicCount" column="topicCount_" />
+		<property name="articleCount" column="articleCount_" />
+
+		<property name="locked" column="locked_" />
+		<property name="autoLoginAuthKey" column="autoLoginAuthKey_" length="128" />
+
+		<!-- <property name="activationKey" column="activationKey_" length="45" /> -->
+		<set name="roles" table="itcast_user_role" lazy="false">
+			<cache usage="read-write"/>
+			<key column="userId_"></key>
+			<many-to-many class="Role" column="roleId_"/>
+		</set>
+	</class>
+</hibernate-mapping>

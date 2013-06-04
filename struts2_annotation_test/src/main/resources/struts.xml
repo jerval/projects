@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+
+<struts>
+	<constant name="struts.custom.i18n.resources" value="messages" />
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.multipart.maxSize" value="10701096" />
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.convention.package.locators" value="action" />
+	<constant name="struts.convention.action.alwaysMapExecute"
+		value="false" />
+	<constant name="struts.convention.default.parent.package"
+		value="jvwl" />
+	<package name="jvwl" extends="struts-default">
+		<interceptors>
+			<interceptor-stack name="my-stack">
+				<interceptor-ref name="exception" />
+				<interceptor-ref name="alias" />
+				<interceptor-ref name="servletConfig" />
+				<interceptor-ref name="i18n" />
+				<interceptor-ref name="prepare" />
+				<interceptor-ref name="chain" />
+				<interceptor-ref name="debugging" />
+				<interceptor-ref name="scopedModelDriven" />
+				<interceptor-ref name="modelDriven" />
+				<interceptor-ref name="fileUpload" />
+				<interceptor-ref name="checkbox" />
+				<interceptor-ref name="multiselect" />
+				<interceptor-ref name="staticParams" />
+				<interceptor-ref name="actionMappingParams" />
+				<interceptor-ref name="params">
+					<param name="excludeParams">dojo\..*,^struts\..*</param>
+				</interceptor-ref>
+				<interceptor-ref name="conversionError" />
+				<interceptor-ref name="validation">
+					<param name="validateAnnotatedMethodOnly">true</param>
+					<param name="excludeMethods">input,back,cancel,browse</param>
+				</interceptor-ref>
+				<interceptor-ref name="workflow">
+					<param name="excludeMethods">input,back,cancel,browse</param>
+				</interceptor-ref>
+				<interceptor-ref name="annotationWorkflow" />
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="my-stack" />
+		<global-results>
+			<result name="exception">/error.jsp</result>
+			<result name="input">/error.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception"
+				result="exception" />
+		</global-exception-mappings>
+	</package>
+</struts>

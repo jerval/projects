@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<!-- Gender枚举类型 -->
+	<typedef name="genderType" class="cn.itcast.bbs.domain.hibernate.HibernateGenericEnumType">
+		<param name="enumClassName">cn.itcast.bbs.domain.Gender</param>
+	</typedef>
+
+</hibernate-mapping>

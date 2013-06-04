@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<package name="staff" extends="struts-default" namespace="/system/manager/staff">
+
+		<action name="addStaffAction">
+			<result>addStaff.jsp</result>
+		</action>
+
+		<action name="addSaveAction" class="com.jvwl.train.action.staff.AddStaffAction">
+			<result type="redirectAction">listStaffAction</result>
+			<result name="fail">fail.jsp</result>
+		</action>
+		
+		<action name="listStaffAction" class="com.jvwl.train.action.staff.ListStaffAction">
+			<result>listStaff.jsp</result>
+		</action>
+
+
+		<action name="updateStaffAction" class="com.jvwl.train.action.staff.UpdateStaffAction">
+			<result>success.jsp</result>
+		</action>
+		
+		<action name="deleteStaffAction" class="com.jvwl.train.action.staff.DeleteStaffAction">
+			<result>success.jsp</result>
+		</action>
+
+		<action name="detailStaffAction" class="com.jvwl.train.action.staff.DetailStaffAction">
+			<result>success.jsp</result>
+		</action>
+
+	</package>
+</struts>

@@ -1,0 +1,29 @@
+A:link    {COLOR: #666666; TEXT-DECORATION: none}
+A:visited {COLOR: #666666; TEXT-DECORATION: none}
+A:hover   {COLOR: #999999; TEXT-DECORATION: none}
+
+
+
+.text {
+	font-family: "ËÎÌו";
+	font-size: 12px;
+	line-height: 24px;
+}
+.td1{background:#eeeeee}
+.td2{background:#ffffff}
+.title-td{ background-image:url(img/title-bg.gif);}
+
+.thin td{ font:"ËÎÌו"; font-size:12px; line-height:24px; border:1px #CCCCCC solid;}
+.thin1 td{ font:"ËÎÌו"; font-size:12px; line-height:24px; border:1px #ffffff solid;}
+body {
+	background-color:#CCCCCC;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+.buttom {color: #000000}
+.STYLE1 {
+	color: #68AFE3;
+	font-weight: bold;
+}

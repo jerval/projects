@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<package name="trainPractise" extends="struts-default" namespace="/system/manager/trainPractise">
+		<action name="trainPractiseAddAction">
+			<result>addTrainPractise.jsp</result>
+		</action>
+		<action name="trainPractiseAddSaveAction" class="com.jvwl.train.action.trainPractise.TrainPractiseAddSaveAction">
+			<result type="redirectAction">trainPractiseListAction</result>
+			<result name="fail">fail.jsp</result>
+		</action>
+		<action name="trainPractiseDeleteAction" class="com.jvwl.train.action.trainPractise.TrainPractiseDeleteAction">
+			<result type="redirectAction">trainPractiseListAction</result>
+		</action>
+		<action name="trainPractiseListAction" class="com.jvwl.train.action.trainPractise.TrainPractiseListAction">
+			<result>listTrainPractise.jsp</result>
+		</action>
+		<action name="trainPractiseUpdateAction" class="com.jvwl.train.action.trainPractise.TrainPractiseUpdateAction">
+			<result>updateTrainPractise.jsp</result>
+		</action>
+		<action name="trainPractiseUpdateSaveAction"
+			class="com.jvwl.train.action.trainPractise.TrainPractiseUpdateSaveAction">
+			<result>success.jsp</result>
+		</action>
+	</package>
+
+</struts>

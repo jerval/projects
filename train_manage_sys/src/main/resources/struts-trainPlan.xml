@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+
+	<package name="ssh-trainPlan" extends="struts-default"
+		namespace="/system/manager/trainPlan">
+		<action name="trainPlan_*" class="com.jvwl.train.action.trainPlan.TrainPlanAction"
+			method="{1}">
+			<result name="{1}">/system/manager/trainPlan/trainPlanList.jsp
+			</result>
+			<result name="toUpdate">/system/manager/trainPlan/updateTrainPlan.jsp
+			</result>
+		</action>
+		<action name="trainPlan_add" class="com.jvwl.train.action.trainPlan.TrainPlanAction"
+			method="add">
+			<result name="add">/system/manager/trainPlan/trainPlanList.jsp
+			</result>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="token"></interceptor-ref>
+			<result name="invalid.token">/index.jsp</result>
+		</action>
+	</package>
+
+</struts>

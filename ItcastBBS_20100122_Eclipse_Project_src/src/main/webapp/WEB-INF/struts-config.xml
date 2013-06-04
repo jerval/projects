@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+	<form-beans>
+		<form-bean name="UserActionForm" type="cn.itcast.bbs.web.struts.formbean.UserActionForm"></form-bean>
+		<form-bean name="CategoryActionForm" type="cn.itcast.bbs.web.struts.formbean.CategoryActionForm"></form-bean>
+		<form-bean name="ForumActionForm" type="cn.itcast.bbs.web.struts.formbean.ForumActionForm"></form-bean>
+		<form-bean name="TopicActionForm" type="cn.itcast.bbs.web.struts.formbean.TopicActionForm"></form-bean>
+		<form-bean name="ReplyActionForm" type="cn.itcast.bbs.web.struts.formbean.ReplyActionForm"></form-bean>
+		<form-bean name="RoleActionForm" type="cn.itcast.bbs.web.struts.formbean.RoleActionForm"></form-bean>
+		<form-bean name="UserActionForm" type="cn.itcast.bbs.web.struts.formbean.UserActionForm"></form-bean>
+		<form-bean name="BlogLinkActionForm" type="cn.itcast.bbs.web.struts.formbean.BlogLinkActionForm"></form-bean>
+		<form-bean name="TopicSearchActionForm" type="cn.itcast.bbs.web.struts.formbean.TopicSearchActionForm"></form-bean>
+	</form-beans>
+	
+	<global-exceptions>
+		<exception key="PermissionDeniedException" type="cn.itcast.bbs.exception.PermissionDeniedException"
+			path="/exception.do?method=permissionDenied">
+		</exception>
+		<exception key="exception" type="java.lang.Exception" path="/exception.do?method=showMessage"></exception>
+	</global-exceptions>
+
+	<global-forwards>
+		<forward name="index" path="/portal.do?method=index" redirect="true"></forward>
+	</global-forwards>
+
+	<action-mappings>
+		<!-- 异常处理 -->
+		<action path="/exception" parameter="method">
+			<forward name="showMessage" path="/WEB-INF/pages/exception/showMessage.jsp"></forward>
+			<forward name="permissionDenied" path="/WEB-INF/pages/exception/permissionDenied.jsp"></forward>
+		</action>
+	
+		<!-- 主页 -->
+		<action path="/portal" parameter="method">
+			<forward name="index" path="/WEB-INF/pages/portal/index.jsp"></forward>
+		</action>
+
+		<!-- 用户 -->
+		<action path="/user" parameter="method" name="UserActionForm" scope="request" validate="false">
+			<forward name="regUserUI" path="/WEB-INF/pages/user/regUserUI.jsp"></forward>
+			<forward name="loginUI" path="/WEB-INF/pages/user/loginUI.jsp"></forward>
+			<forward name="changePasswordUI" path="/WEB-INF/pages/user/changePasswordUI.jsp"></forward>
+		</action>
+
+		<!-- 文章操作 -->
+		<action path="/forum" parameter="method">
+			<forward name="showMain" path="/WEB-INF/pages/forum/show_main.jsp"></forward>
+			<forward name="showTop" path="/WEB-INF/pages/forum/show_top.jsp"></forward>
+			<forward name="showLeft" path="/WEB-INF/pages/forum/show_left.jsp"></forward>
+			<forward name="showRight" path="/WEB-INF/pages/forum/show_right.jsp"></forward>
+			<forward name="showRight_showTopic" path="/topic.do?method=show" redirect="true"></forward>
+		</action>
+		<action path="/topic" parameter="method" name="TopicActionForm" scope="request" validate="false">
+			<forward name="list" path="/WEB-INF/pages/topic/list.jsp"></forward>
+			<forward name="show" path="/WEB-INF/pages/topic/show.jsp"></forward>
+			<forward name="show_nonexistent" path="/WEB-INF/pages/topic/show_nonexistent.jsp"></forward>
+			<forward name="saveUI" path="/WEB-INF/pages/topic/saveUI.jsp"></forward>
+			<forward name="toShow" path="/topic.do?method=show" redirect="true"></forward>
+		</action>
+		<action path="/reply" parameter="method" name="ReplyActionForm" scope="request" validate="false">
+			<forward name="saveUI" path="/WEB-INF/pages/reply/saveUI.jsp"></forward>
+			<forward name="toTopicShow" path="/topic.do?method=show" redirect="true"></forward>
+		</action>
+
+		<!-- 主题搜索 -->
+		<action path="/topicSearch" parameter="method" name="TopicSearchActionForm" scope="request" validate="false">
+			<forward name="searchTopicUI" path="/WEB-INF/pages/topicSearch/searchTopicUI.jsp"></forward>
+			<forward name="resultList" path="/WEB-INF/pages/topicSearch/resultList.jsp"></forward>
+		</action>
+
+
+		<!-- %%%%%%%%%%%%管理主页%%%%%%%%%%%% -->
+		<action path="/manage/portal" parameter="method">
+			<forward name="index" path="/WEB-INF/pages/portal_manage/index.jsp"></forward>
+		</action>
+
+		<!-- 分类与版面管理-->
+		<action path="/manage/category" parameter="method" name="CategoryActionForm" scope="request" validate="false">
+			<forward name="list" path="/WEB-INF/pages/forum_manage/category_list.jsp" />
+			<forward name="saveUI" path="/WEB-INF/pages/forum_manage/category_saveUI.jsp" />
+			<forward name="toList" path="/manage/category.do?method=list" redirect="true" />
+		</action>
+		<action path="/manage/forum" parameter="method" name="ForumActionForm" scope="request" validate="false">
+			<forward name="saveUI" path="/WEB-INF/pages/forum_manage/forum_saveUI.jsp" />
+			<forward name="toCategoryList" path="/manage/category.do?method=list" redirect="true" />
+		</action>
+
+		<!-- 文章管理 -->
+		<action path="/manage/topic" parameter="method" name="TopicActionForm" scope="request" validate="false">
+			<forward name="changeTypeUI" path="/WEB-INF/pages/topic_manage/changeTypeUI.jsp" />
+			<forward name="moveUI" path="/WEB-INF/pages/topic_manage/moveUI.jsp" />
+			<forward name="toTopicShow" path="/topic.do?method=show" redirect="true" />
+			<forward name="toForumShowRight" path="/forum.do?method=showRight" redirect="true" />
+		</action>
+		<action path="/manage/reply" parameter="method" name="ReplyActionForm" scope="request" validate="false">
+			<forward name="toTopicShow" path="/topic.do?method=show" redirect="true" />
+		</action>
+
+		<!-- 权限管理-->
+		<action path="/manage/role" parameter="method" name="RoleActionForm" scope="request" validate="false">
+			<forward name="list" path="/WEB-INF/pages/role_manage/list.jsp" />
+			<forward name="saveUI" path="/WEB-INF/pages/role_manage/saveUI.jsp" />
+			<forward name="toList" path="/manage/role.do?method=list" redirect="true" />
+		</action>
+
+		<!-- 会员管理-->
+		<action path="/manage/user" parameter="method" name="UserActionForm" scope="request" validate="false">
+			<forward name="list" path="/WEB-INF/pages/user_manage/list.jsp" />
+			<forward name="selectRolesUI" path="/WEB-INF/pages/user_manage/selectRolesUI.jsp" />
+			<forward name="toList" path="/manage/user.do?method=list" redirect="true" />
+		</action>
+
+		<!-- 博客链接管理-->
+		<action path="/manage/blogLink" parameter="method" name="BlogLinkActionForm" scope="request" validate="false">
+			<forward name="list" path="/WEB-INF/pages/blogLink_manage/list.jsp" />
+			<forward name="saveUI" path="/WEB-INF/pages/blogLink_manage/saveUI.jsp" />
+			<forward name="toList" path="/manage/blogLink.do?method=list" redirect="true" />
+		</action>
+
+		<!-- 主题搜索管理 -->
+		<action path="/manage/topicSearch" parameter="method">
+			<forward name="list" path="/WEB-INF/pages/topicSearch_manage/list.jsp"></forward>
+			<forward name="toList" path="/manage/topicSearch.do?method=list" redirect="true" />
+		</action>
+
+	</action-mappings>
+
+	<!-- 由spring 的ioc 容器管理Action实例 -->
+	<controller>
+		<!-- <set-property property="processorClass" value="org.springframework.web.struts.DelegatingRequestProcessor" /> -->
+		<!-- 通过扩展的RequestProcessor增加权限检查的功能 -->
+		<set-property property="processorClass" value="cn.itcast.bbs.web.struts.PrivilegeInterceptorDelegatingRequestProcessor" />
+		<set-property property="nocache" value="true" />
+	</controller>
+	<message-resources parameter="cn.itcast.bbs.web.struts.ApplicationResources" />
+</struts-config>
+

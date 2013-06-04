@@ -1,0 +1,73 @@
+@charset "utf-8";
+
+body {
+	background:#CDE7FF none repeat scroll 0 0;
+	color:#000000;
+	font-family: "����";
+	font-size:12px;
+	text-align:left;
+	padding-left: 10px;
+}
+h1, h2, h3, h4, h5, h6, form, div, p, i, img, ul, li, ol, table, tr, td, fieldset, label, legend {
+	margin:0;
+	padding:0;
+}
+h2 {
+	display:block;
+	font-size:1.5em;
+	font-weight:bold;
+	margin:0.83em 0;
+}
+:link, :visited {
+	color:#313131;
+}
+a {
+	color:#303030;
+	font-size:12px;
+	line-height:19px;
+	text-decoration:none;
+}
+input {
+	font-family:����;
+	font-size:9pt;
+	padding: 0px;
+}
+button, input[type="reset"], input[type="button"], input[type="submit"] {
+	text-align:center;
+	padding: 0px;
+}
+/**/
+.title h3 {
+	font-size: 14px;
+	margin: 8px auto 8px auto;
+}
+.hr1 {
+	size:1px;
+	color:#A0D5FE;
+}
+.hr2 {
+	border:medium dotted;
+	color:#CECECE;
+	size:1px;
+}
+
+.article {
+	padding-top:15px;
+	padding-right: 30px;
+	padding-bottom: 20px;
+	border-bottom:1px solid #A5D6FF;
+	line-height:150%;
+}
+.article h3.floor {
+	font-size: 12px;
+	font-weight: bold;
+	width: 55px;
+	float: left;
+}
+.article .info {
+	margin-bottom: 10px;
+}
+.article .info span {
+	margin-left: 1px;
+	margin-right: 12px;
+}

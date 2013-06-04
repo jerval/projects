@@ -1,0 +1,21 @@
+@charset "utf-8";
+/* CSS Document */
+.show{
+	font-size:13px;
+	color:#999999;
+	background:url(../images/checkForm/onShow.gif) no-repeat center left;}
+.focus{
+	font-size:13px;
+	color:#00CC99;
+	vertical-align:middle;
+	background:url(../images/checkForm/onFocus.gif) no-repeat center left;}
+.error{
+	font-size:13px;
+	color:#FF0000;
+	vertical-align:middle;
+	background:url(../images/checkForm/onError.gif) no-repeat center left;}
+.success{
+	font-size:13px;
+	color:#6600FF;
+	vertical-align:middle;
+	background:url(../images/checkForm/onCorrect.gif) no-repeat center left;}

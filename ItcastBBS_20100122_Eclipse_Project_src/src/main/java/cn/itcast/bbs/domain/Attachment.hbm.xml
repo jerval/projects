@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="cn.itcast.bbs.domain">
+	<class name="Attachment" table="itcast_attachment">
+		<cache usage="read-write" />
+
+		<id name="id" column="id_">
+			<generator class="uuid" />
+		</id>
+		<property name="path" column="path_" />
+		<many-to-one name="article" column="articleId_" lazy="false" />
+
+		<property name="fileName" column="fileName_" length="255" />
+		<property name="fileSize" column="fileSize_" />
+		<property name="description" column="description_" length="255" />
+
+		<property name="creationTime" column="creationTime_" type="timestamp" />
+		<property name="downloadCount" column="downloadCount_" />
+	</class>
+</hibernate-mapping>

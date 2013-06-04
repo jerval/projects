@@ -1,0 +1,40 @@
+<%@ page pageEncoding="utf-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<c:if test="${request_pageView.totalPage gt 1}">
+<div class="pageview">分页：
+    <%--页码列表--%>
+    <a href="javascript:gotoPage(1)">[首页]</a>
+    <c:forEach begin="${request_pageView.startPageIndex}" end="${request_pageView.endPageIndex}" var="pageNum">
+        <c:if test="${request_pageView.currentPage ne pageNum}">
+            <a href="javascript:gotoPage(${pageNum})">[${pageNum}]</a>
+        </c:if>
+        <c:if test="${request_pageView.currentPage eq pageNum}">
+            <span class="currentpage">[${pageNum}]</span>
+        </c:if>
+    </c:forEach>
+    <a href="javascript:gotoPage(${request_pageView.totalPage})">[尾页]</a>
+    <%--快速选择页码--%>
+    <select name="pageNum" onchange="gotoPage(this.value)">
+        <c:forEach begin="1" end="${request_pageView.totalPage}" var="pageNum">
+            <option value="${pageNum}" ${request_pageView.currentPage eq pageNum ? 'selected=\\"selected\\"' : ''}>${pageNum}</option>
+        </c:forEach>
+    </select>
+</div>
+
+<script type="text/javascript">
+    function gotoPage(pageNum) {
+        if (isNaN(pageNum)) {
+            alert("请输入正确的页码");
+            document.getElementById('txtPageNum').focus();
+            return;
+        }
+        if (pageNum < 1 || pageNum > ${request_pageView.totalPage}) {
+            alert("请输入正确的页码，页码范围为 1-11");
+            document.getElementById('txtPageNum').focus();
+            return;
+        }
+        document.location.href = getPageViewUrl(pageNum);
+    }
+</script>
+</c:if>

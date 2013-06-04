@@ -1,0 +1,11 @@
+1，2010-01-22  显示主题时，主贴及所有的回复都显示主题的ip。
+2，2010-01-22  发表主题或回复时，在页面中使用FCKeditor，可以转换标签。但可以绕过。
+			方法为自已造一个表单，提交地址为发表主题，就可以随便写html或js了。所以还要再过滤标签。
+			过滤标签有：<script>与<meta>
+			1，<script>示例：<script type="text/javascript"> setTimeout("window.location.reload();",1); >/script>
+			2，refresh示例：5秒之后刷新本页面:<meta http-equiv="refresh" content="5" />
+			   5秒之后转到Itcast首页:<meta http-equiv="refresh" content="5; url=http://www.itcast.cn/" />
+3，2010-01-22  删除用户文章后，用户中的主题记数与文章记数不变。而发表主题或回复时可以正常记数。
+			原因：删除主题或回复后，是merge(article.author)。不是session中的user。
+			session中的user有可能在修改密码等操作后merge。就会覆盖原有的值！目前示修复
+3，2010-01-22  重建索引是不会删除原有的索引，应删除。

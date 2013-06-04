@@ -1,0 +1,25 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost/forum</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password"></property>
+		<property name="hibernate.connection.pool_size">20</property>
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		
+		<mapping class="com.jvwl.forum.model.base.BaseBean"/>
+		<mapping class="com.jvwl.forum.model.User"/>
+		<mapping class="com.jvwl.forum.model.Member"/>
+		<mapping class="com.jvwl.forum.model.Board"/>
+		<mapping class="com.jvwl.forum.model.Reply"/>
+		<mapping class="com.jvwl.forum.model.Topic"/>
+		<!-- 
+		 -->
+	</session-factory>
+</hibernate-configuration>

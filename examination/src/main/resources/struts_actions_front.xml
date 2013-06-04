@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<package name="employeeIndex" extends="jvwl" namespace="/system/employee">
+		<default-interceptor-ref name="checkStack"></default-interceptor-ref>
+		<action name="employeeIndex">
+			<result>/system/employee/index.jsp</result>
+		</action>
+	</package>
+	<!-- 员工信息模块开始 -->
+	<package name="myzone" extends="jvwl" namespace="/system/employee/myzone">
+		<action name="myInfoAction" class="com.jvwl.examination.action.front.MyInfoAction">
+			<result>myinfo.jsp</result>
+		</action>
+	</package>
+	<!--  员工信息模块结束 -->
+	<!--考试管理模块开始 	-->
+	<package name="exam" extends="jvwl" namespace="/system/employee/exam">
+		<action name="myExamAction"
+			class="com.jvwl.examination.action.front.MyExamAction">
+			<result type="json">
+				<param name="noCache">true</param>
+			</result>
+			<result name="toExam">exam.jsp</result>
+			<result name="toWelcome">welcome.jsp</result>
+			<result name="toSelectPaper">select_paper.jsp</result>
+		</action>
+		<action name="getExamAction"
+			class="com.jvwl.examination.action.front.GetExamAction">
+			<result type="json">
+				<param name="noCache">true</param>
+			</result>
+			<result name="result">result.jsp</result>
+			<result name="all">allexam.jsp</result>
+		</action>
+	</package>
+
+	<!-- 考试管理模块开始 -->
+	<!-- 员工成绩模块开始 -->
+	<package name="score" extends="jvwl" namespace="/system/employee/score">
+		<action name="myScoreAction" class="com.jvwl.examination.action.front.MyScoreAction">
+			<result type="json">
+				<param name="noCache">true</param>
+			</result>
+			<result name="toMyScore">myscore_list.jsp</result>
+		</action>
+	</package>
+	<!-- 员工成绩模块开始 -->
+	<!-- 员工修改密码结束 -->
+	<package name="modifyPasswordAction" extends="jvwl"
+		namespace="/system/employee/sys">
+		<action name="toModifyPasswordAction">
+			<result>sys_updatepass.jsp</result>
+		</action>
+		<action name="modifyPasswordAction"
+			class="com.jvwl.examination.action.front.ModifyPasswordAction">
+			<result type="json">
+				<param name="noCache">true</param>
+			</result>
+		</action>
+	</package>
+	<!-- 员工修改密码结束 -->
+</struts>
